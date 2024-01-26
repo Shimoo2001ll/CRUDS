@@ -11,39 +11,68 @@
     <link rel="stylesheet" href="style/bootstrap-5.3.2-dist/js/bootstrap.js">
 </head>
 
-<body class="bg-dark text-light p-2 pt-5  d-flex justify-content-center align-items-center  w-100">
-    <section id=" main " class="bg-dark text-light  pt-5 me-sm-0  ms-sm-0  ">
+<body class="bg-dark text-light p-2 pt-5   ">
+    <section id=" main " class="bg-dark text-light  pt-5   ">
         <h2 class="text-center ">CRUDS</h2>
         <p class="text-center text-capitalize">create read update delete save</p>
-        <div class="title w-100 m-3 me-sm-0  ms-sm-0">
-            <input type="text " name="text " id="text " placeholder=" title " class="w-100 p-2 text-capitalize ">
+        <div class="title w-100 m-3 ">
+            <input type="text " name="text " id="title " placeholder=" title " class="w-100 p-2 text-capitalize ">
         </div>
-        <div class="price row w-100 m-3 pe-4 ps-4 ms-5 me-5 text-capitalizeme-sm-0  ms-sm-0  ">
-            <input type="number" name="number " id="price " placeholder="price " class=" col-sm-4 col-md-3 col-lg-2 m-2 p-2 ">
-            <input type="number" name="tasx" id="tasx " placeholder="tasx " class=" col-sm-4 col-md-3 col-lg-2 m-2 p-2 ">
-            <input type="number" name="ads" id="ads " placeholder="ads " class=" col-sm-4 col-md-3 col-lg-2 m-2 p-2 ">
-            <input type="number" name="" id="discouunt " placeholder="discouunt " class=" col-sm-4 col-md-3 col-lg-2 m-2 p-2 ">
-            <span class=" total col-sm-4 col-md-2 col-lg-1 m-2 p-2 bg-danger rounded ">489</span>
-
+        <div class="totalPrice row w-100 m-3 pe-4 ps-4 ms-5 me-5 text-capitalize  ">
+            <input onkeyup="getTotal()" type="number" name="price " id="price " placeholder="price " class="price col-sm-4 col-md-3 col-lg-2 m-2 p-2 ">
+            <input onkeyup="getTotal()" type="number" name="tasx" id="tasx " placeholder="tasx " class="tasx col-sm-4 col-md-3 col-lg-2 m-2 p-2 ">
+            <input onkeyup="getTotal()" type="number" name="ads" id="ads " placeholder="ads " class="ads col-sm-4 col-md-3 col-lg-2 m-2 p-2 ">
+            <input onkeyup="getTotal()" type="number" name="" id="discouunt " placeholder="discouunt " class=" discouunt col-sm-4 col-md-3 col-lg-2 m-2 p-2 ">
+            <small class=" total col-sm-4 col-md-2 col-lg-1 m-2 p-2  rounded "></small
         </div>
-        <div class="count w-100 m-3 text-light  me-sm-0  ms-sm-0">
+        <div class="count w-100 m-3 text-light  ">
             <input type="count " name="count " id="count " placeholder="count " class="w-100 p-2 text-capitalize ">
         </div>
-        <div class="category w-100 m-3 me-sm-0  ms-sm-0 ">
+        <div class="category w-100 m-3 ">
             <input type="category " name="category " id="category " placeholder="category " class=" w-100 p-2 text-capitalize ">
         </div>
-        <div class="create w-100 m-3 text-center me-sm-0  ms-sm-0 ">
+        <div class="create w-100 m-3 text-center ">
             <a href="# " class="btn btn-info rounded text-light text-capitalize w-100 "> create</a>
         </div>
-        <div class=" w-100 m-3 me-sm-0  ms-sm-0 ">
-            <input type="search " name="search " id="search " placeholder="search " class=" w-100 p-2 text-capitalize ">
-        </div>
-        <div class="search w-100 m-3 text-center me-sm-0  ms-sm-0 row">
-            <a href="# " class="btn btn-info rounded text-light text-capitalize w-50 col ms-5"> search by title</a>
-            <a href="# " class="btn btn-info rounded text-light text-capitalize w-50 col ms-5"> search by category</a>
-        </div>
+        <div id="outputs" class="">
+            <div class=" w-100 ">
+                <input type="search " name="search " id="search " placeholder="search " class="w-100  p-2 text-capitalize ">
+            </div>
+            <div class="search w-75 m-3 text-center   ">
+                <button class="btn btn-info rounded text-light text-capitalize  col "> search by title</button>
+                <button class="btn btn-info rounded text-light text-capitalize col ms-5"> search by category</button>
+            </div>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Price</th>
+                    <th>Taxes</th>
+                    <th>ADS</th>
+                    <th>Discount</th>
+                    <th>Category</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+                <tbody>
+                    <tr>
 
+                        <td>1 </td>
+                        <td>oppo</td>
+                        <td>178217$</td>
+                        <td>7328</td>
+                        <td>28</td>
+                        <td>2782</td>
+                        <td>phone</td>
+                        <td><button class="btn btn-info"> update</button></td>
+                        <td><button class="btn btn-danger"> delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
     </section>
+    <script src="main.js"></script>
 </body>
 
 </html>
