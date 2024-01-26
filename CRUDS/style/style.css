@@ -8,6 +8,10 @@
                 --main-transition: all .4s linear;
             }
             /*   global styling */
+            
+            div {
+                max-width: 90%;
+            }
             /*  end global styling */
             /*  main section  */
             
