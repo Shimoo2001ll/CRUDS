@@ -33,18 +33,24 @@ if (localStorage.product != null) {
 }
 create.onclick = function() {
         let newProduct = {
-            title: title.value,
-            price: price.value,
-            taxes: taxes.value,
-            ads: ads.value,
-            discouunt: discouunt.value,
-            count: count.value,
-            category: category.value,
-
-
+                title: title.value,
+                price: price.value,
+                taxes: taxes.value,
+                ads: ads.value,
+                discouunt: discouunt.value,
+                count: count.value,
+                category: category.value,
+            }
+            //  save the product like te user enter in count box
+        if (newProduct.count > 1) {
+            for (let i = 0; i < newProduct.count; i++) {
+                products.push(newProduct)
+            }
+        } else {
+            products.push(newProduct)
         }
-        products.push(newProduct)
-            //  save to local storage
+
+        //  save to local storage
         localStorage.setItem('product', JSON.stringify(products))
         clearData()
         showData()
@@ -77,13 +83,17 @@ function showData() {
                 <td>${products[i].taxes}</td>
                 <td>${products[i].ads}</td>
                 <td>${products[i].discouunt}</td>
-             
                 <td>${products[i].category}</td>
                 <td><button class="btn btn-info m-2"> update</button></td>
                 <td><button onclick="deleteProd(${i})" class="btn btn-danger m-2"> delete</button></td>
             </tr>`
     }
-    document.querySelector('.tableBody').innerHTML = table
+    document.querySelector('.tableBody').innerHTML = table;
+    if (products.length > 0) { document.querySelector('.deleteAll').innerHTML = `<button onclick="deleteAll()" class="btn btn-danger m-2 p-2 w-100 text-capitalize">
+    delete all(${products.length})
+    </button>` } else {
+        document.querySelector('.deleteAll').innerHTML = ''
+    }
 }
 showData()
 
@@ -91,6 +101,13 @@ showData()
 function deleteProd(i) {
     products.splice(i, 1)
     localStorage.product = JSON.stringify(products)
+    showData()
+
+}
+// delet all data
+function deleteAll() {
+    localStorage.clear()
+    products.splice(0)
     showData()
 
 }
