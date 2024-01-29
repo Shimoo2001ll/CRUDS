@@ -5,15 +5,16 @@ let price = document.querySelector('.price');
 let taxes = document.querySelector('.tasx');
 let ads = document.querySelector('.ads');
 let discouunt = document.querySelector('.discouunt');
-let total = document.querySelector('.total')
-let count = document.querySelector('.count')
-let category = document.querySelector('.category')
-let create = document.querySelector('.create')
-
+let total = document.querySelector('.total');
+let count = document.querySelector('.count');
+let category = document.querySelector('.category');
+let create = document.querySelector('.create');
+let mood = 'create';
+let tem;
 //function to get total price
 function getTotal() {
 
-    let result = ((+price.value + +taxes.value + +ads.value) - +discouunt.value)
+    let result = ((+price.value + +taxes.value + +ads.value) - +discouunt.value);
     if (price.value !== "") {
         total.innerHTML = result
         total.classList.add('result')
@@ -42,13 +43,23 @@ create.onclick = function() {
                 category: category.value,
             }
             //  save the product like te user enter in count box
-        if (newProduct.count > 1) {
-            for (let i = 0; i < newProduct.count; i++) {
+        if (mood === 'create') {
+
+            if (newProduct.count > 1) {
+                for (let i = 0; i < newProduct.count; i++) {
+                    products.push(newProduct)
+                }
+            } else {
                 products.push(newProduct)
             }
         } else {
-            products.push(newProduct)
+            products[tem] = newProduct
+            mood = 'create'
+            create.innerHTML = 'create'
+            count.style.display = 'block'
+
         }
+
 
         //  save to local storage
         localStorage.setItem('product', JSON.stringify(products))
@@ -84,7 +95,7 @@ function showData() {
                 <td>${products[i].ads}</td>
                 <td>${products[i].discouunt}</td>
                 <td>${products[i].category}</td>
-                <td><button class="btn btn-info m-2"> update</button></td>
+                <td><button onclick="updatData(${i})" class="btn btn-info m-2"> update</button></td>
                 <td><button onclick="deleteProd(${i})" class="btn btn-danger m-2"> delete</button></td>
             </tr>`
     }
@@ -110,4 +121,20 @@ function deleteAll() {
     products.splice(0)
     showData()
 
+}
+//  update the data
+
+function updatData(i) {
+    title.value = products[i].title;
+    price.value = products[i].price;
+    taxes.value = products[i].taxes;
+    ads.value = products[i].ads;
+    discouunt.value = products[i].discouunt;
+    category.value = products[i].category;
+    getTotal();
+    create.innerHTML = 'update'
+    mood = 'Update'
+    count.style.display = 'none'
+    tem = i;
+    scroll({ top: 0, behavior: "smooth" })
 }
