@@ -25,8 +25,8 @@ function getTotal() {
 }
 //function to create a product
 let products;
-if (localStorage.products != '') {
-    products = JSON.parse(localStorage.products)
+if (localStorage.product != null) {
+    products = JSON.parse(localStorage.product)
 } else {
 
     products = []
@@ -45,7 +45,7 @@ create.onclick = function() {
         }
         products.push(newProduct)
             //  save to local storage
-        localStorage.setItem('products', JSON.stringify(products))
+        localStorage.setItem('product', JSON.stringify(products))
         clearData()
         showData()
     }
@@ -77,12 +77,20 @@ function showData() {
                 <td>${products[i].taxes}</td>
                 <td>${products[i].ads}</td>
                 <td>${products[i].discouunt}</td>
-                <td>${products[i].count}</td>
+             
                 <td>${products[i].category}</td>
-                <td><button class="btn btn-info"> update</button></td>
-                <td><button class="btn btn-danger"> delete</button></td>
+                <td><button class="btn btn-info m-2"> update</button></td>
+                <td><button onclick="deleteProd(${i})" class="btn btn-danger m-2"> delete</button></td>
             </tr>`
     }
     document.querySelector('.tableBody').innerHTML = table
 }
 showData()
+
+//  delete btn
+function deleteProd(i) {
+    products.splice(i, 1)
+    localStorage.product = JSON.stringify(products)
+    showData()
+
+}
