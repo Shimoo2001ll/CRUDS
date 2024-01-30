@@ -57,6 +57,7 @@ create.onclick = function() {
             mood = 'create'
             create.innerHTML = 'create'
             count.style.display = 'block'
+                // alert("Updated successfully")
 
         }
 
@@ -137,4 +138,5 @@ function updatData(i) {
     count.style.display = 'none'
     tem = i;
     scroll({ top: 0, behavior: "smooth" })
+
 }
