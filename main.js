@@ -46,7 +46,7 @@ create.onclick = function() {
         if (mood === 'create') {
 
             if (newProduct.count > 1) {
-                for (let i = 1; i < newProduct.count; i++) {
+                for (let i = 0; i < newProduct.count; i++) {
                     products.push(newProduct)
                 }
             } else {
@@ -86,7 +86,7 @@ let deletAll = document.querySelector('.deleteAll')
 
 function showData() {
     let table = ''
-    for (let i = 1; i < products.length; i++) {
+    for (let i = 0; i < products.length; i++) {
         // table = products[i]
         //     // console.log(table)
         table += ` 

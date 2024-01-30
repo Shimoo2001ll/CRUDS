@@ -11,46 +11,46 @@
     <link rel="stylesheet" href="style/bootstrap-5.3.2-dist/js/bootstrap.js">
 </head>
 
-<body class="bg-dark text-light p-2 pt-5   ">
-    <section id=" main " class="bg-dark text-light  pt-5   ">
+<body class="bg-dark text-light  pt-5   ">
+    <section id=" main " class=" container text-light  pt-5   ">
         <h2 class="text-center ">CRUDS</h2>
         <p class="text-center text-capitalize">create read update delete save</p>
-        <div class=" w-100 m-3 ">
-            <input type="text " name="text " id="title " placeholder=" title " class=" title w-100 p-2 text-capitalize ">
+        <div class="  m-3 ">
+            <input type="text " name="text " id="title " placeholder=" title " class=" title  p-2 text-capitalize ">
         </div>
-        <div class="totalPrice row w-100 m-3 pe-4 ps-4 ms-5 me-5 text-capitalize  ">
+        <div class="totalPrice row  m-3   text-capitalize  ">
             <input onkeyup="getTotal()" type="number" name="price " id="price " placeholder="price " class="price col-sm-4 col-md-3 col-lg-2 m-2 p-2 ">
             <input onkeyup="getTotal()" type="number" name="tasx" id="tasx " placeholder="tasx " class="tasx col-sm-4 col-md-3 col-lg-2 m-2 p-2 ">
             <input onkeyup="getTotal()" type="number" name="ads" id="ads " placeholder="ads " class="ads col-sm-4 col-md-3 col-lg-2 m-2 p-2 ">
             <input onkeyup="getTotal()" type="number" name="" id="discouunt " placeholder="discouunt " class=" discouunt col-sm-4 col-md-3 col-lg-2 m-2 p-2 ">
-            <small class=" total col-sm-4 col-md-2 col-lg-1 m-2 p-2  rounded "></small
+            <small class=" total col-sm-4 col-md-2 col-lg-1 m-2 p-2  rounded "></small>
         </div>
-        <div class=" w-100 m-3 text-light  ">
-            <input type="number " name="count " id="count " placeholder="count " class="count w-100 p-2 text-capitalize ">
+        <div class=" m-3   text-light  ">
+            <input type="number " name="count " id="count " placeholder="count " class="count  p-2 text-capitalize ">
         </div>
-        <div class=" w-100 m-3 ">
-            <input type="text " name="category " id="category " placeholder="category " class="category w-100 p-2 text-capitalize ">
+        <div class="  m-3 ">
+            <input type="text " name="category " id="category " placeholder="category " class="category  p-2 text-capitalize ">
         </div>
-        <div class=" w-100 m-3 text-center ">
-            <a href="# " class=" create btn btn-info rounded text-light text-capitalize w-100 "> create</a>
+        <div class=" m-3 text-center ">
+            <a href="# " class=" create btn btn-info rounded text-light text-capitalize  "> create</a>
         </div>
         <div id="outputs" class="">
-            <div class=" w-100 ">
-                <input onkeyup="searchPrd(this.value)" type="text " name="search " id="search " placeholder="search " class="search w-100  p-2 text-capitalize ">
+            <div class="  ">
+                <input onkeyup="searchPrd(this.value)" type="text " name="search " id="search " placeholder="search " class="search   p-2 text-capitalize ">
             </div>
-            <div class=" w-75 m-3 text-center   ">
-                <button onclick=" searchMood(this.id)" id="search by title" class="btn btn-info rounded text-light text-capitalize  col "> search by title</button>
-                <button onclick="searchMood(this.id)" id="search by category" class="btn btn-info rounded text-light text-capitalize col ms-5"> search by category</buttonid>
+            <div class=" m-3 text-center   ">
+                <button onclick=" searchMood(this.id)" id="search by title" class="btn btn-info rounded text-light text-capitalize  col m-1 "> search by title</button>
+                <button onclick="searchMood(this.id)" id="search by category" class="btn btn-info rounded text-light text-capitalize col m-1"> search by category</buttonid>
             </div>
-            <div class="deleteAll"></div>
-            <table>
+            <div class="deleteAll "></div>
+            <table  class=" text-center">
                 <tr>
                     <th>ID</th>
                     <th>Title</th>
                     <th>Price</th>
-                    <th>Taxes</th>
+                    <!-- <th>Taxes</th>
                     <th>ADS</th>
-                    <th>Discount</th>
+                    <th>Discount</th> -->
                     <th>Category</th>
                     <th>Update</th>
                     <th>Delete</th>
