@@ -34,19 +34,19 @@ if (localStorage.product != null) {
 }
 create.onclick = function() {
         let newProduct = {
-                title: title.value,
+                title: title.value.toLowerCase(),
                 price: price.value,
                 taxes: taxes.value,
                 ads: ads.value,
                 discouunt: discouunt.value,
                 count: count.value,
-                category: category.value,
+                category: category.value.toLowerCase(),
             }
             //  save the product like te user enter in count box
         if (mood === 'create') {
 
             if (newProduct.count > 1) {
-                for (let i = 0; i < newProduct.count; i++) {
+                for (let i = 1; i < newProduct.count; i++) {
                     products.push(newProduct)
                 }
             } else {
@@ -82,9 +82,11 @@ function clearData() {
 }
 
 //  read the dataand display it in html
+let deletAll = document.querySelector('.deleteAll')
+
 function showData() {
     let table = ''
-    for (let i = 0; i < products.length; i++) {
+    for (let i = 1; i < products.length; i++) {
         // table = products[i]
         //     // console.log(table)
         table += ` 
@@ -101,10 +103,10 @@ function showData() {
             </tr>`
     }
     document.querySelector('.tableBody').innerHTML = table;
-    if (products.length > 0) { document.querySelector('.deleteAll').innerHTML = `<button onclick="deleteAll()" class="btn btn-danger m-2 p-2 w-100 text-capitalize">
+    if (products.length > 0) { deletAll.innerHTML = `<button onclick="deleteAll()" class="btn btn-danger m-2 p-2 w-100 text-capitalize">
     delete all(${products.length})
     </button>` } else {
-        document.querySelector('.deleteAll').innerHTML = ''
+        deletAll.innerHTML = ''
     }
 }
 showData()
@@ -138,5 +140,64 @@ function updatData(i) {
     count.style.display = 'none'
     tem = i;
     scroll({ top: 0, behavior: "smooth" })
+
+}
+
+//  search function
+let sMood = 'title'
+let search = document.querySelector('.search')
+console.log(search)
+
+function searchMood(id) {
+    if (id == 'search by title') {
+        sMood = 'title'
+        search.placeholder = id
+    } else {
+        sMood = 'category'
+        search.placeholder = id
+    }
+    search.focus()
+    search.value = ''
+}
+
+function searchPrd(value) {
+    let table = '';
+    if (sMood == 'title') {
+        for (let i = 0; i < products.length; i++) {
+            if (products[i].title.toLowerCase().includes(value)) {
+                table += ` 
+                    <tr>
+                    <td>${i} </td>
+                    <td>${products[i].title}</td>
+                    <td>${products[i].price}</td>
+                    <td>${products[i].taxes}</td>
+                    <td>${products[i].ads}</td>
+                    <td>${products[i].discouunt}</td>
+                    <td>${products[i].category}</td>
+                    <td><button onclick="updatData(${i})" class="btn btn-info m-2"> update</button></td>
+                    <td><button onclick="deleteProd(${i})" class="btn btn-danger m-2"> delete</button></td>
+                </tr>`
+
+            }
+        }
+    } else {
+        for (let i = 0; i < products.length; i++) {
+            if (products[i].category.toLowerCase().includes(value)) {
+                table += ` 
+                    <tr>
+                    <td>${i} </td>
+                    <td>${products[i].title}</td>
+                    <td>${products[i].price}</td>
+                    <td>${products[i].taxes}</td>
+                    <td>${products[i].ads}</td>
+                    <td>${products[i].discouunt}</td>
+                    <td>${products[i].category}</td>
+                    <td><button onclick="updatData(${i})" class="btn btn-info m-2"> update</button></td>
+                    <td><button onclick="deleteProd(${i})" class="btn btn-danger m-2"> delete</button></td>
+                </tr>`
+            }
+        }
+    }
+    document.querySelector('.tableBody').innerHTML = table;
 
 }

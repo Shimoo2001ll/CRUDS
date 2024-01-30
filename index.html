@@ -36,11 +36,11 @@
         </div>
         <div id="outputs" class="">
             <div class=" w-100 ">
-                <input type="search " name="search " id="search " placeholder="search " class="w-100  p-2 text-capitalize ">
+                <input onkeyup="searchPrd(this.value)" type="text " name="search " id="search " placeholder="search " class="search w-100  p-2 text-capitalize ">
             </div>
-            <div class="search w-75 m-3 text-center   ">
-                <button class="btn btn-info rounded text-light text-capitalize  col "> search by title</button>
-                <button class="btn btn-info rounded text-light text-capitalize col ms-5"> search by category</button>
+            <div class=" w-75 m-3 text-center   ">
+                <button onclick=" searchMood(this.id)" id="search by title" class="btn btn-info rounded text-light text-capitalize  col "> search by title</button>
+                <button onclick="searchMood(this.id)" id="search by category" class="btn btn-info rounded text-light text-capitalize col ms-5"> search by category</buttonid>
             </div>
             <div class="deleteAll"></div>
             <table>
