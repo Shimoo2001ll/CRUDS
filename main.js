@@ -91,13 +91,13 @@ function showData() {
         //     // console.log(table)
         table += ` 
                 <tr>
-                <td>${i} </td>
-                <td>${products[i].title}</td>
-                <td>${products[i].price}</td>
-                <td>${products[i].taxes}</td>
-                <td>${products[i].ads}</td>
-                <td>${products[i].discouunt}</td>
-                <td>${products[i].category}</td>
+                <td  class="m-1">${i} </td>
+                <td  class="m-1">${products[i].title}</td>
+                <td  class="m-1">${products[i].price}</td>
+                <td  class="m-1">${products[i].taxes}</td>
+                <td  class="m-1">${products[i].ads}</td>
+                <td  class="m-1">${products[i].discouunt}</td>
+                <td  class="m-1">${products[i].category}</td>
                 <td><button onclick="updatData(${i})" class="btn btn-info m-2"> update</button></td>
                 <td><button onclick="deleteProd(${i})" class="btn btn-danger m-2"> delete</button></td>
             </tr>`
@@ -108,6 +108,7 @@ function showData() {
     </button>` } else {
         deletAll.innerHTML = ''
     }
+    products.sort(a, b)
 }
 showData()
 
