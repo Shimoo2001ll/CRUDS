@@ -43,22 +43,27 @@ create.onclick = function() {
                 category: category.value.toLowerCase(),
             }
             //  save the product like te user enter in count box
-        if (mood === 'create') {
+        if (title.value != '' && price.value != '' && category.value != '') {
+            document.querySelector('.alert ').style.display = `none`
+            if (mood === 'create') {
 
-            if (newProduct.count > 1) {
-                for (let i = 0; i < newProduct.count; i++) {
+                if (newProduct.count > 1) {
+                    for (let i = 0; i < newProduct.count; i++) {
+                        products.push(newProduct)
+                    }
+                } else {
                     products.push(newProduct)
                 }
             } else {
-                products.push(newProduct)
+                products[tem] = newProduct
+                mood = 'create'
+                create.innerHTML = 'create'
+                count.style.display = 'block'
+                    // alert("Updated successfully")
+
             }
         } else {
-            products[tem] = newProduct
-            mood = 'create'
-            create.innerHTML = 'create'
-            count.style.display = 'block'
-                // alert("Updated successfully")
-
+            document.querySelector('.alert ').style.display = `block`
         }
 
 
